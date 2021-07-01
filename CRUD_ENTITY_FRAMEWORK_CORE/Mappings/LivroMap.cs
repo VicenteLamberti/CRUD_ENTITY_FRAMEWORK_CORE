@@ -34,6 +34,10 @@ namespace CRUD_ENTITY_FRAMEWORK_CORE.Mappings
             builder.HasIndex(p => p.Titulo)
                 .HasDatabaseName("IX_Livro_Titulo");
 
+            //builder.HasOne(p => p.Categoria) //COM ESSE MAPEAMENTO FICA EXPLICITO A RELACAO ENTRE LIVROS E CATEGORIAS, MAS COMO ADICIONAMOS  CATEGORIA DENTRO DE LIVRO , e  ICOLLECTION DE LIVROS DENTRO DE CATEGORIA, ENTAO JA ESTA CERTO
+            //    .WithMany()
+            //    .HasForeignKey(p => p.CategoriaId);
+
 
             builder.HasData(
                 new Livro(1, 1, "Titulo 1", "Autor 1", 10, 50),

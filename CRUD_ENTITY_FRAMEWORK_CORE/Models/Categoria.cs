@@ -7,11 +7,12 @@ namespace CRUD_ENTITY_FRAMEWORK_CORE.Models
 {
     public class Categoria
     {
-        public Categoria()
-        {
+        public Categoria() =>
+            Livros = new List<Livro>();
+        
 
-        }
-        public Categoria(int id, string nome)
+        
+        public Categoria(int id, string nome): this()
         {
             Id = id;
             Nome = nome;
