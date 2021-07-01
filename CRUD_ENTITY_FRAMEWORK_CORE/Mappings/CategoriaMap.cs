@@ -14,6 +14,9 @@ namespace CRUD_ENTITY_FRAMEWORK_CORE.Mappings
         {
             builder.ToTable("Categoria");
 
+            builder.Property(p => p.Id)
+                .HasColumnType("INTEGER");
+
             //builder.HasKey(p => p.Id);  //COMO O NOME É ID O EF JA ENTENDE QUE É PK, SE FOSSE CATEGORIAID TAMBÉM
 
             builder.Property(p => p.Nome)

@@ -15,7 +15,11 @@ namespace CRUD_ENTITY_FRAMEWORK_CORE.Mappings
             builder.ToTable("Livro");
 
             builder.Property(p => p.Id)
-                .ValueGeneratedNever(); //COM ISSO O ID NAO  É SERIAL, QUE É O PADRÃO
+                .ValueGeneratedNever() //COM ISSO O ID NAO  É SERIAL, QUE É O PADRÃO
+                .HasColumnType("INTEGER");
+
+            builder.Property(p => p.CategoriaId)
+                .HasColumnType("INTEGER");
 
             builder.Property(p => p.Titulo)
                 .HasColumnType("VARCHAR(150)")
@@ -33,6 +37,12 @@ namespace CRUD_ENTITY_FRAMEWORK_CORE.Mappings
 
             builder.HasIndex(p => p.Titulo)
                 .HasDatabaseName("IX_Livro_Titulo");
+
+            builder.HasOne(p => p.Categoria)
+                .WithMany(p => p.Livros)
+                .OnDelete(DeleteBehavior.NoAction) //SE NÃO COLOCAR ESSE MAPEAMENTO, O DEFAULT  É CASCADE, ENTÃO SE DELETAR UMA CATEGORIA, DELETE TODOS OS LIVROS DA
+                .HasForeignKey(p => p.CategoriaId);
+
 
             //builder.HasOne(p => p.Categoria) //COM ESSE MAPEAMENTO FICA EXPLICITO A RELACAO ENTRE LIVROS E CATEGORIAS, MAS COMO ADICIONAMOS  CATEGORIA DENTRO DE LIVRO , e  ICOLLECTION DE LIVROS DENTRO DE CATEGORIA, ENTAO JA ESTA CERTO
             //    .WithMany()
