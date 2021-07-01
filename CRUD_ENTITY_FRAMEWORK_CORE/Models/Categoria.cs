@@ -17,7 +17,7 @@ namespace CRUD_ENTITY_FRAMEWORK_CORE.Models
             Nome = nome;
         }
 
-        public int Id { get; set; }
+        public int Id { get; set; } //COMO O NOME É ID O EF JA ENTENDE QUE É PK, SE FOSSE CATEGORIAID TAMBÉM
         public string Nome { get; set; }
         public ICollection <Livro> Livros { get; set; }
     }
