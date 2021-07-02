@@ -1,0 +1,27 @@
+﻿@model CRUD_ENTITY_FRAMEWORK_CORE.Models.UserModel
+@{
+    ViewData["Title"] = "Logar";
+}
+
+
+<div class="row ">
+    <div class="col-md-4 m-auto">
+        <form asp-action="Logar">
+            <div class="form-group">
+                <label asp-for="UserName">USUÁRIO</label>
+                <input asp-for="UserName" type="text" name="UserName" value="" class="form-control" placeholder="DIGITE SEU E-MAIL" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Password">SENHA</label>
+                <input asp-for="Password" type="password" name="Password" value="" class="form-control" placeholder="DIGITE SUA SENHA" />
+            </div>
+            <div class="mt-1">
+                <button class="btn btn-success" type="submit">ENTRAR</button>
+                <button class="btn btn-primary" asp-action="AlterarSenhaEsquecida">ESQUECI A SENHA</button>
+            </div>
+        </form>
+        <div>
+            <label>@ViewBag.Notification</label>
+        </div>
+    </div>
+</div>

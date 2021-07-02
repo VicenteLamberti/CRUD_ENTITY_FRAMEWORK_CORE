@@ -30,6 +30,7 @@ namespace CRUD_ENTITY_FRAMEWORK_CORE.Context
             //modelBuilder.ApplyConfigurationsFromAssembly( // ASSIM BUSCA EM TODO ASSEMBLY A ASSINATURA  IEntityTypeConfiguration<>
             modelBuilder.ApplyConfiguration(new CategoriaMap()); //PODER SER ASSIM, MAS É PRECISO DIGITAR TODOS
             modelBuilder.ApplyConfiguration(new LivroMap());
+            modelBuilder.ApplyConfiguration(new UserModelMap());
 
         }
 
@@ -37,5 +38,6 @@ namespace CRUD_ENTITY_FRAMEWORK_CORE.Context
 
         public DbSet<Livro> Livros { get; set; }
         public DbSet<Categoria> Categorias { get; set; }
+        public DbSet<CRUD_ENTITY_FRAMEWORK_CORE.Models.UserModel> UserModel { get; set; }
     }
 }
