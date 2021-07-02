@@ -10,7 +10,7 @@ using CRUD_ENTITY_FRAMEWORK_CORE.Models;
 
 namespace CRUD_ENTITY_FRAMEWORK_CORE.Controllers
 {
-    public class LivrosController : Controller
+    public class LivrosController : PrincipalController
     {
         private readonly DataContext _context;
 

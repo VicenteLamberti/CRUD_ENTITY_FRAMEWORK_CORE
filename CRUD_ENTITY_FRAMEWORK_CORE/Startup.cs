@@ -28,7 +28,16 @@ namespace CRUD_ENTITY_FRAMEWORK_CORE
             services.AddDbContext<DataContext>(options =>
                 options.UseSqlite(Configuration.GetConnectionString("SqliteConexaoString"))
             );
+
             services.AddControllersWithViews();
+
+            services.AddAuthentication("DefaultSchemeCookieCRUD").AddCookie("DefaultSchemeCookieCRUD", opt =>
+             {
+                 opt.Cookie.Name = "NameCookieCRUDEntityFramework";
+                 opt.LoginPath = "/Login/Logar";
+                 opt.AccessDeniedPath = "/Home/Index";
+
+             });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,6 +56,7 @@ namespace CRUD_ENTITY_FRAMEWORK_CORE
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
+            app.UseAuthentication();
             app.UseRouting();
 
             app.UseAuthorization();
